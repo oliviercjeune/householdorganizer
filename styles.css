@@ -76,6 +76,7 @@ body {
     align-items: center;
     display: flex;
     flex-direction: row;
+    justify-content: space-around;
 }
 
 .j-user-stats,
