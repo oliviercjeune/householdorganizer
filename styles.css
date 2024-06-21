@@ -1,0 +1,107 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Inter:wght@100..900&display=swap');
+
+html {
+    font-size: 62.5%;
+    -webkit-text-size-adjust: 100%;
+}
+
+body {
+    background-color: black;
+    color: white;
+    font-family: 'Caveat';
+    margin: 0;
+    overflow: hidden;
+    padding: 0;
+}
+
+.j-container {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    height: 100vh;
+}
+
+.j-date {
+    font-size: 3.6rem;
+    font-weight: 700;
+    margin-bottom: 56px;
+    margin-top: 48px;
+}
+
+.j-tasks-container {
+    margin-bottom: 56px;
+    width: 100%;
+}
+
+.j-tasks-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.j-tasks-list-li {
+    margin-bottom: 8px;
+    position: relative;
+}
+
+.j-tasks-list-li::before {
+    background-color: rgba(255,255,255,.5);
+    content: "";
+    display: block;
+    height: 1px;
+    position: absolute;
+    top: 26px;
+    width: 100%;
+}
+
+.j-task {
+    display: block;
+    font-size: 3.2rem;
+    font-weight: 400;
+    margin: 0 auto;
+    max-width: 60%;
+}
+
+.j-user-container,
+.j-user,
+.j-user-stats {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    gap: 32px;
+}
+
+.j-user-stats,
+.j-user-settings-stats {
+    font-family: 'Inter';
+}
+
+.j-number,
+.j-label {
+    display: block;
+    text-align: center;
+}
+
+.j-number {
+    font-size: 9.6rem;
+    font-weight: 900;
+}
+
+.j-label {
+    font-size: 2rem;
+    font-weight: 300;
+}
+
+.j-user-settings-stats {
+    border: 1px solid rgba(255,255,255,.2);
+    border-radius: 16px;
+    padding: 12px;
+    margin-top: 64px;
+}
+
+.j-user-stats-alltime,
+.js-oliver .j-user-stats {
+    display: none;
+}

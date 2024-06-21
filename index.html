@@ -1,11 +1,86 @@
+<!DOCTYPE html>
 <html>
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1.0, maximum-scale=1.0, minimal-ui" />
+
+    <link rel="stylesheet" href="styles.css">
+    <script src="scripts.js"></script>
   </head>
   <body>
-    <h1>Hello, this is Oliver Jeune</h1>
-    <p>test</p>
-    <p>test</p>
-    <p>test</p>
+      <div class="j-container">
+
+          <div class="j-date js-date">21. Juni 2024</div>
+
+          <div class="j-tasks-container">
+
+            <ul class="j-tasks-list">
+              <li class="j-tasks-list-li"><span class="j-task js-task">Müll rausbringen</span></li>
+              <li class="j-tasks-list-li"><span class="j-task js-task">Spülmaschine aus/einräumen</span></li>
+              <li class="j-tasks-list-li"><span class="j-task js-task">Küchenfläche aufräumen</span></li>
+              <li class="j-tasks-list-li"><span class="j-task js-task">Wohnzimmer aufräumen</span></li>
+              <li class="j-tasks-list-li"><span class="j-task js-task">Esszimmer aufräumen</span></li>
+              <li class="j-tasks-list-li"><span class="j-task js-task">Flur aufräumen</span></li>
+              <li class="j-tasks-list-li"><span class="j-task js-task">Cleo's Zimmer aufräumen</span></li>
+              <li class="j-tasks-list-li"><span class="j-task js-task">Schlafzimmer aufräumen</span></li>
+              <li class="j-tasks-list-li"><span class="j-task js-task">Bad aufräumen</span></li>
+              <li class="j-tasks-list-li"><span class="j-task js-task">Wäsche einschalten</span></li>
+              <li class="j-tasks-list-li"><span class="j-task js-task">Wäsche aufhängen</span></li>
+            </ul>
+
+          </div>
+
+          <div class="j-user-container">
+
+            <div class="j-user js-inga">
+              <div class="j-user-button">
+                <img src="inga.png" width="100" height="100" />
+              </div>
+
+              <div class="j-user-stats js-stats">
+                  <div class="j-user-stats-day js-day">
+                    <span class="j-number js-number">3</span>
+                    <span class="j-label">TODAY</span>
+                  </div>
+                  <div class="j-user-stats-week js-week">
+                    <span class="j-number js-number">13</span>
+                    <span class="j-label">WEEK</span>
+                  </div>
+                  <div class="j-user-stats-alltime js-alltime">
+                    <span class="j-number js-number">120</span>
+                    <span class="j-label">ALLTIME</span>
+                  </div>
+              </div>
+            </div>
+
+            <div class="j-user js-oliver">
+              <div class="j-user-button">
+                <img src="oliver.png" width="100" height="100" />
+              </div>
+
+              <div class="j-user-stats js-stats">
+                <div class="j-user-stats-day js-day">
+                  <span class="j-number js-number">3</span>
+                  <span class="j-label">TODAY</span>
+                </div>
+                <div class="j-user-stats-week js-week">
+                  <span class="j-number js-number">13</span>
+                  <span class="j-label">WEEK</span>
+                </div>
+                <div class="j-user-stats-alltime js-alltime">
+                  <span class="j-number js-number">120</span>
+                  <span class="j-label">ALLTIME</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="j-user-settings">
+            <div class="j-user-settings-stats js-alltime-stats">
+              Show All-time-Stats
+            </div>
+          </div>
+
+      </div>
   </body>
 </html>
