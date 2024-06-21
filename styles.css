@@ -111,6 +111,11 @@ body {
     font-family: 'Inter';
 }
 
+.j-user-button {
+    position: relative;
+    z-index: 10;
+}
+
 .j-user-button,
 .j-user-settings-stats {
     cursor: pointer;
@@ -158,10 +163,10 @@ body {
 }
 
 .j-user--active .j-user-stats {
-    max-width: 260px;
+    max-width: 300px;
     opacity: 1;
     visibility: visible;
-    width: 260px;
+    width: 300px;
 }
 
 .j-user-container--active .j-user-stats {
