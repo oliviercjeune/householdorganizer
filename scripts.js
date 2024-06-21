@@ -35,35 +35,37 @@ getDataFromLocalStorage();
 
 function getDataFromLocalStorage() {
     let localUserData = JSON.parse(localStorage.getItem('userData'));
-    for (const [key, value] of Object.entries(localUserData)) {
-        if(key == "inga") {
-            let inga = document.querySelector('.js-user-inga');
-            if(value.day.count == getDayNumber()) {
-                getTaskDataFromLocalStorage();
-                inga.querySelector('.js-day .js-number').textContent = value.day.value;
-            } else {
-                deleteTaskDataFromLocalStorage();
-                inga.querySelector('.js-day .js-number').textContent = 0;
+    if(localUserData) {
+        for (const [key, value] of Object.entries(localUserData)) {
+            if(key == "inga") {
+                let inga = document.querySelector('.js-user-inga');
+                if(value.day.count == getDayNumber()) {
+                    getTaskDataFromLocalStorage();
+                    inga.querySelector('.js-day .js-number').textContent = value.day.value;
+                } else {
+                    deleteTaskDataFromLocalStorage();
+                    inga.querySelector('.js-day .js-number').textContent = 0;
+                }
+                if(value.week.count == getWeekNumber()) {
+                    inga.querySelector('.js-week .js-number').textContent = value.week.value;
+                } else {
+                    inga.querySelector('.js-week .js-number').textContent = 0;
+                }
+                inga.querySelector('.js-alltime .js-number').textContent = value.alltime;
+            } else if(key == "oliver") {
+                let oliver = document.querySelector('.js-user-oliver');
+                if(value.day.count == getDayNumber()) {
+                    oliver.querySelector('.js-day .js-number').textContent = value.day.value;
+                } else {
+                    oliver.querySelector('.js-day .js-number').textContent = 0;
+                }
+                if(value.week.count == getWeekNumber()) {
+                    oliver.querySelector('.js-week .js-number').textContent = value.week.value;
+                } else {
+                    oliver.querySelector('.js-week .js-number').textContent = 0;
+                }
+                oliver.querySelector('.js-alltime .js-number').textContent = value.alltime;
             }
-            if(value.week.count == getWeekNumber()) {
-                inga.querySelector('.js-week .js-number').textContent = value.week.value;
-            } else {
-                inga.querySelector('.js-week .js-number').textContent = 0;
-            }
-            inga.querySelector('.js-alltime .js-number').textContent = value.alltime;
-        } else if(key == "oliver") {
-            let oliver = document.querySelector('.js-user-oliver');
-            if(value.day.count == getDayNumber()) {
-                oliver.querySelector('.js-day .js-number').textContent = value.day.value;
-            } else {
-                oliver.querySelector('.js-day .js-number').textContent = 0;
-            }
-            if(value.week.count == getWeekNumber()) {
-                oliver.querySelector('.js-week .js-number').textContent = value.week.value;
-            } else {
-                oliver.querySelector('.js-week .js-number').textContent = 0;
-            }
-            oliver.querySelector('.js-alltime .js-number').textContent = value.alltime;
         }
     }
 }
