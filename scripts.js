@@ -61,6 +61,7 @@ let tasks = document.querySelectorAll('.js-task');
 
 tasks.forEach(task => {
     task.addEventListener('click', () => {
-
+        task.classList.add('j-task--done');
+        task.classList.add('j-tas')
     });
 });
