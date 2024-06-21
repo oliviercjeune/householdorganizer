@@ -27,7 +27,7 @@ let newUserData = {
 
 let userDataLocalStorage = localStorage.getItem('userData');
 
-if(userDataLocalStorage) {
+if(!userDataLocalStorage) {
     localStorage.setItem('userData', JSON.stringify(newUserData));
 }
 
