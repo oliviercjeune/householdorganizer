@@ -125,6 +125,7 @@ body {
 
 .j-user-stats-alltime,
 .j-user-stats {
+    max-width: 1px;
     opacity: 0;
     overflow: hidden;
     transition: all .3s ease-in-out;
