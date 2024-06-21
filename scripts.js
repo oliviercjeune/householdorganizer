@@ -27,7 +27,7 @@ let newUserData = {
 
 let userDataLocalStorage = localStorage.getItem('userData');
 
-if(!userDataLocalStorage) {
+if(userDataLocalStorage) {
     localStorage.setItem('userData', JSON.stringify(newUserData));
 }
 
@@ -39,8 +39,10 @@ function getDataFromLocalStorage() {
         if(key == "inga") {
             let inga = document.querySelector('.js-user-inga');
             if(value.day.count == getDayNumber()) {
+                getTaskDataFromLocalStorage();
                 inga.querySelector('.js-day .js-number').textContent = value.day.value;
             } else {
+                deleteTaskDataFromLocalStorage();
                 inga.querySelector('.js-day .js-number').textContent = 0;
             }
             if(value.week.count == getWeekNumber()) {
@@ -66,6 +68,32 @@ function getDataFromLocalStorage() {
     }
 }
 
+function getTaskDataFromLocalStorage() {
+    for(let i = 1; i <= 11; i++) {
+        let localTaskData = JSON.parse(localStorage.getItem('task-' + i));
+        if(localTaskData){
+            for (const [key, value] of Object.entries(localTaskData)) {
+                let task = document.querySelector('.js-task[data-storage="' + i + '"]');
+                
+                if(key == "inga" && value) {
+                    task.classList.add('j-task--done');
+                    task.classList.add('j-task--inga');
+                }
+    
+                if(key == "oliver" && value) {
+                    task.classList.add('j-task--done');
+                    task.classList.add('j-task--oliver');
+                }
+            }
+        }
+    }
+}
+
+function deleteTaskDataFromLocalStorage() {
+    for(let i = 1; i <= 11; i++) {
+        localStorage.removeItem('task-' + i);
+    }
+}
 
 // CALCS
 
@@ -133,9 +161,66 @@ let tasks = document.querySelectorAll('.js-task');
 
 tasks.forEach(task => {
     task.addEventListener('click', () => {
-        task.classList.add('j-task--done');
-        task.classList.add('j-task--' + activeUser);
-        countUp();
+        let dataStorage = task.getAttribute('data-storage');
+
+        if(!task.classList.contains('j-task--' + activeUser)) {
+            task.classList.add('j-task--done');
+            task.classList.add('j-task--' + activeUser);
+            
+            let ingaTaskStorage = false;
+            let oliverTaskStorage = false;
+
+            let getTaskStorage = JSON.parse(localStorage.getItem('task-' + dataStorage));
+
+            if(activeUser == "inga") {
+                ingaTaskStorage = true
+                if(getTaskStorage) {
+                    oliverTaskStorage = Object.entries(getTaskStorage)[1][1];
+                }
+            } else if(activeUser == "oliver") {
+                oliverTaskStorage = true;
+                if(getTaskStorage) {
+                    ingaTaskStorage = Object.entries(getTaskStorage)[0][1];
+                }
+            }
+
+            let taskStorage = {
+                "inga" : ingaTaskStorage,
+                "oliver" : oliverTaskStorage
+            };
+
+            localStorage.setItem('task-' + dataStorage, JSON.stringify(taskStorage));
+
+            countUpDown(true);
+        } else {
+            let ingaTaskStorage = false;
+            let oliverTaskStorage = false;
+
+            if(activeUser == "inga") {
+                if(!task.classList.contains('j-task--oliver')) {
+                    task.classList.remove('j-task--done');
+                } else {
+                    oliverTaskStorage = true;
+                }
+            } else if(activeUser == "oliver") {
+                if(!task.classList.contains('j-task--inga')) {
+                    task.classList.remove('j-task--done');
+                } else {
+                    ingaTaskStorage = true;
+                }
+            }
+
+            let taskStorage = {
+                "inga" : ingaTaskStorage,
+                "oliver" : oliverTaskStorage
+            };
+
+            localStorage.setItem('task-' + dataStorage, JSON.stringify(taskStorage));
+
+            task.classList.remove('j-task--' + activeUser);
+
+            countUpDown(false);
+        }
     });
 });
 
@@ -158,7 +243,7 @@ function toggleAllTimeStats () {
 
 // COUNT UP
 
-function countUp() {
+function countUpDown(up) {
 
     let inga = document.querySelector('.js-user-inga');
     let ingaDay = inga.querySelector('.js-day .js-number').textContent;
@@ -171,13 +256,25 @@ function countUp() {
     let oliverAlltime = oliver.querySelector('.js-alltime .js-number').textContent;
 
     if(activeUser == "inga") {
-        ingaDay++;
-        ingaWeek++;
-        ingaAlltime++;
+        if(up) {
+            ingaDay++;
+            ingaWeek++;
+            ingaAlltime++;
+        } else {
+            ingaDay--;
+            ingaWeek--;
+            ingaAlltime--;
+        }
     } else if(activeUser == "oliver") {
-        oliverDay++;
-        oliverWeek++;
-        oliverAlltime++;
+        if(up) {
+            oliverDay++;
+            oliverWeek++;
+            oliverAlltime++;
+        } else {
+            oliverDay--;
+            oliverWeek--;
+            oliverAlltime--;
+        }
     }
 
     let changeUserData = {
