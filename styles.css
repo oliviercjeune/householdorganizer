@@ -70,7 +70,6 @@ body {
     align-items: center;
     display: flex;
     flex-direction: row;
-    gap: 32px;
 }
 
 .j-user-stats,
@@ -87,6 +86,7 @@ body {
 .j-number {
     font-size: 9.6rem;
     font-weight: 900;
+    line-height: 1;
 }
 
 .j-label {
@@ -99,6 +99,15 @@ body {
     border-radius: 16px;
     padding: 12px;
     margin-top: 64px;
+}
+
+.j-user-stats-day,
+.j-user-stats-alltime {
+    margin: 0 32px;
+}
+
+.j-user-stats-week {
+    margin: 0 32px 0 0;
 }
 
 .j-user-stats-alltime,
