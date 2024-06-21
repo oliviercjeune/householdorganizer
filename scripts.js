@@ -53,3 +53,5 @@ users.forEach(user => {
         document.body.classList.add('user-active');
     });
 });
+
+let tasks = document.querySelectorAll('.js-task');
