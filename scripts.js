@@ -71,7 +71,7 @@ function getDataFromLocalStorage() {
 }
 
 function getTaskDataFromLocalStorage() {
-    for(let i = 1; i <= 11; i++) {
+    for(let i = 1; i <= 15; i++) {
         let localTaskData = JSON.parse(localStorage.getItem('task-' + i));
         if(localTaskData){
             for (const [key, value] of Object.entries(localTaskData)) {
@@ -92,7 +92,7 @@ function getTaskDataFromLocalStorage() {
 }
 
 function deleteTaskDataFromLocalStorage() {
-    for(let i = 1; i <= 11; i++) {
+    for(let i = 1; i <= 15; i++) {
         localStorage.removeItem('task-' + i);
     }
 }
