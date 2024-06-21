@@ -23,12 +23,15 @@ function getWeekNumber(d) {
     return [d.getUTCFullYear(), weekNo];
 }
 
+var d = new Date();
+var n = d.toLocaleTimeString()
+
 let today = new Date();
 let dd = String(today.getDate());
 let mm = String(today.getMonth());
 let yyyy = today.getFullYear();
 months = new Array('Januar', 'Februar', 'März', 'April', 'Mai', 'Juni', 'Juli', 'August', 'September', 'Oktober', 'November', 'Dezember');
 curMonth = months[mm];
-today = dd + '. ' + curMonth + ' ' + yyyy;
+today = dd + '. ' + curMonth + ' ' + yyyy + ' // ' + n;
 
 document.querySelector('.js-date').textContent = today;
