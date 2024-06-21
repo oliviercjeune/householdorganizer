@@ -129,12 +129,11 @@ body {
     opacity: 0;
     overflow: hidden;
     transition: all .3s ease-in-out;
-    visibility: hidden;
     width: 0;
 }
 
 .j-user--active .j-user-stats {
-    max-width: fit-content;
+    max-width: 260px;
     opacity: 1;
     visibility: visible;
     width: 260px;

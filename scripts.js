@@ -35,6 +35,7 @@ today = dd + '. ' + curMonth + ' ' + yyyy + ' - ' + time;
 
 document.querySelector('.js-date').textContent = today;
 
+// USER
 
 
 let activeUser;
@@ -54,4 +55,12 @@ users.forEach(user => {
     });
 });
 
+// TASKS
+
 let tasks = document.querySelectorAll('.js-task');
+
+tasks.forEach(task => {
+    task.addEventListener('click', () => {
+
+    });
+});
