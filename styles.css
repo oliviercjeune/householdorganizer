@@ -64,6 +64,33 @@ body {
     margin: 0 auto;
     max-width: 60%;
     pointer-events: none;
+    position: relative;
+}
+
+.j-task--done .j-task-done,
+.j-task--inga .j-task-done::before,
+.j-task--oliver .j-task-done::after {
+    background-image: url('checked.png');
+    background-size: contain;
+    content: "";
+    display: block;
+    height: 36px;
+    right: 0;
+    top: 4px;
+    position: absolute;
+    width: 36px;
+}
+
+.j-task--inga .j-task-done::before {
+    background-image: url('inga.png');
+    right: 40px;
+    top: 0;
+}
+
+.j-task--oliver .j-task-done::after {
+    background-image: url('oliver.png');
+    right: -40px;
+    top: 0;
 }
 
 .user-active .j-task {
@@ -114,8 +141,7 @@ body {
 }
 
 .j-user-stats-day,
-.j-user-stats-week,
-.j-user-stats-alltime {
+.j-user-stats-week {
     margin-left: 32px;
 }
 
@@ -123,7 +149,6 @@ body {
     margin-left: 32px;
 }
 
-.j-user-stats-alltime,
 .j-user-stats {
     max-width: 1px;
     opacity: 0;
@@ -137,4 +162,21 @@ body {
     opacity: 1;
     visibility: visible;
     width: 260px;
+}
+
+.j-user-container--active .j-user-stats {
+    max-width: 220px;
+    opacity: 1;
+    visibility: visible;
+    width: 220px;
+}
+
+.j-user-container--active .j-user-stats-alltime {
+    display: block;
+}
+
+.j-user-stats-alltime,
+.j-user-container--active .j-user-stats-day,
+.j-user-container--active .j-user-stats-week {
+    display: none;
 }
