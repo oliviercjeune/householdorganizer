@@ -127,8 +127,8 @@ body {
 .j-user-stats {
     max-width: 1px;
     opacity: 0;
-    overflow: hidden;
     transition: all .3s ease-in-out;
+    visibility: hidden;
     width: 0;
 }
 
