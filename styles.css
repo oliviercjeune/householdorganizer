@@ -134,6 +134,7 @@ body {
 }
 
 .j-user--active .j-user-stats {
+    max-width: fit-content;
     opacity: 1;
     visibility: visible;
     width: 260px;
