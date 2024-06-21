@@ -37,4 +37,19 @@ document.querySelector('.js-date').textContent = today;
 
 
 
-let user
+let activeUser;
+let users = document.querySelectorAll('.js-user-button');
+
+users.forEach(user => {
+    user.addEventListener('click', () => {
+        
+        document.querySelectorAll('.j-user--active').forEach(user => {
+            user.classList.remove('j-user--active');
+        });
+        
+        user.closest('.js-user').classList.add('j-user--active');
+        activeUser = user.getAttribute('data-user');
+        
+        document.body.classList.add('user-active');
+    });
+});

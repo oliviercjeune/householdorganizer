@@ -57,11 +57,17 @@ body {
 }
 
 .j-task {
+    cursor: pointer;
     display: block;
     font-size: 3.2rem;
     font-weight: 400;
     margin: 0 auto;
     max-width: 60%;
+    pointer-events: none;
+}
+
+.user-active .j-task {
+    pointer-events: all;
 }
 
 .j-user-container,
@@ -75,6 +81,11 @@ body {
 .j-user-stats,
 .j-user-settings-stats {
     font-family: 'Inter';
+}
+
+.j-user-button,
+.j-user-settings-stats {
+    cursor: pointer;
 }
 
 .j-number,
@@ -102,15 +113,25 @@ body {
 }
 
 .j-user-stats-day,
+.j-user-stats-week,
 .j-user-stats-alltime {
-    margin: 0 32px;
+    margin-left: 32px;
 }
 
-.j-user-stats-week {
-    margin: 0 32px 0 0;
+.j-oliver {
+    margin-left: 32px;
 }
 
 .j-user-stats-alltime,
-.js-oliver .j-user-stats {
-    display: none;
+.j-user-stats {
+    opacity: 0;
+    transition: all .3s ease-in-out;
+    visibility: hidden;
+    width: 0;
+}
+
+.j-user--active .j-user-stats {
+    opacity: 1;
+    visibility: visible;
+    width: 260px;
 }
