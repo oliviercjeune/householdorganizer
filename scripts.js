@@ -25,6 +25,8 @@ let newUserData = {
     }
 }
 
+let taskAmount = 16;
+
 let userDataLocalStorage = localStorage.getItem('userData');
 
 if(!userDataLocalStorage) {
@@ -71,7 +73,7 @@ function getDataFromLocalStorage() {
 }
 
 function getTaskDataFromLocalStorage() {
-    for(let i = 1; i <= 15; i++) {
+    for(let i = 1; i <= taskAmount; i++) {
         let localTaskData = JSON.parse(localStorage.getItem('task-' + i));
         if(localTaskData){
             for (const [key, value] of Object.entries(localTaskData)) {
@@ -92,7 +94,7 @@ function getTaskDataFromLocalStorage() {
 }
 
 function deleteTaskDataFromLocalStorage() {
-    for(let i = 1; i <= 15; i++) {
+    for(let i = 1; i <= taskAmount; i++) {
         localStorage.removeItem('task-' + i);
     }
 }
